@@ -13,9 +13,6 @@ function buildRows(rowLetter) {
   };
 };
 
-
-
-
 $(function() {
   cellsCollection = new CellsCollection(newCells);
   new CellsView(cellsCollection);
