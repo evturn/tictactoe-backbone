@@ -15,7 +15,6 @@ var AppView = Backbone.View.extend({
 			gridId = counter;
 			unplayed.set({cell: 'a' + gridId})
 			this.$el.append(this.cellTemplate(unplayed.toJSON()));
-			console.log(unplayed);
 			newCells.push(unplayed);
 		};
 		this.rowB();
@@ -27,7 +26,6 @@ var AppView = Backbone.View.extend({
 			gridId = counter;
 			unplayed.set({cell: 'b' + gridId})
 			this.$el.append(this.cellTemplate(unplayed.toJSON()));
-			console.log(unplayed);
 			newCells.push(unplayed);
 		};
 		this.rowC();
@@ -39,7 +37,6 @@ var AppView = Backbone.View.extend({
 			gridId = counter;
 			unplayed.set({cell: 'c' + gridId})
 			this.$el.append(this.cellTemplate(unplayed.toJSON()));
-			console.log(unplayed);
 			newCells.push(unplayed);
 		};
 		this.markAllUnplayed();
@@ -49,7 +46,13 @@ var AppView = Backbone.View.extend({
 	},
 	replaceCell: function(e) {
 		e.preventDefault();
-		
-		
+		selectedCell = e.currentTarget
+		cellId = selectedCell.id;
+		turnX = new OpponentX();
+		turnX.set({cell: cellId});
+		console.log('currentTarget', e.currentTarget);
+		console.log('turnX', turnX);
+		console.log($('#' + cellId));
+
 	}
 });

@@ -28,9 +28,15 @@ var turn0 = [
 ];
 
 
-	new AppView();
-$(function() {
+new AppView();
+playedCell = [];
 
+$(function() {
+	$('.cell').on('click', function() {
+		selectedCell = this.id;
+		console.log('chill', selectedCell);
+		playedCell.push(selectedCell);
+	});
 
 });
 
