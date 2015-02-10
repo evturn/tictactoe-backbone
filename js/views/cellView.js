@@ -15,7 +15,7 @@ var CellView = Backbone.View.extend({
 		e.preventDefault();
 		usedCell = this.model.get('cell');
 		if ($.inArray(usedCell, gamePlay) !== -1) {
-			alert('It\s taken. You blind?');
+			alert('It\s taken. Are you blind?');
 		} else {
 			gamePlay.push(usedCell);
 			this.replaceCell();	
