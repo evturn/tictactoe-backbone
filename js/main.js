@@ -28,7 +28,9 @@ var turn0 = [
 ];
 
 
-$(function() {
 	new AppView();
+$(function() {
+
+
 });
 
