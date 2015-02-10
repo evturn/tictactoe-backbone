@@ -18,3 +18,7 @@ var possibleWins = [
     [ $a1, $b2, $c3 ],
     [ $c1, $b2, $a3 ]
 ];
+
+$(function() {
+	new AppView();
+});
