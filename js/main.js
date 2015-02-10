@@ -6,7 +6,7 @@ function buildRows(rowLetter) {
   counter = 1;
   for (counter + 1; counter <= 3; counter++) {
     var unplayed = new Unplayed;
-    cellId = rowLetter +counter;
+    cellId = rowLetter + counter;
     unplayed.set({cell: cellId})
     cellView = new CellView({model: unplayed}); 
     newCells.push(unplayed);

@@ -22,7 +22,11 @@ var CellView = Backbone.View.extend({
 		}
 	},
 	alternateTurn: function() {
-
+		if ($.inArray(turn, turns) !== -1) {
+			this.addDonut();
+		} else {
+			this.addEclair();
+		}
 	},
 	isUsed: function() {
 		usedCell = this.model.get('cell');
