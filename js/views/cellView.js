@@ -2,6 +2,8 @@ var CellView = Backbone.View.extend({
 	template: _.template($('#cell-template').html()),
 	initialize: function() {
 		gamePlay = [];
+		turn = 1;
+		turns = [1, 3, 5, 7, 9];
 		this.render();
 	},
 	events: {
@@ -13,11 +15,14 @@ var CellView = Backbone.View.extend({
 	},
 	moveMade: function(e) {
 		e.preventDefault();
-		if (gamePlay === []) {
-			this.replaceCell();
+		if (turn === 1) {
+			this.addEclair();
 		} else {
 			this.isUsed();
 		}
+	},
+	alternateTurn: function() {
+
 	},
 	isUsed: function() {
 		usedCell = this.model.get('cell');
@@ -25,14 +30,21 @@ var CellView = Backbone.View.extend({
 			alert('It\s taken. Are you blind?');
 		} else {
 			gamePlay.push(usedCell);
-			this.replaceCell();	
+			this.alternateTurn();	
 		}
 	},
-	replaceCell: function() {
+	addDonut: function() {
 		allDonuts = donutsCollection.models;
 		newDonut = allDonuts[Math.floor(Math.random()*allDonuts.length)];
 		newDonut.set({cell: cellId});
 		this.$el.html(this.template(newDonut.toJSON()));
+		return this;
+	},
+	addEclair: function() {
+		allEclairs = eclairsCollection.models;
+		newEclair = allEclairs[Math.floor(Math.random()*allEclairs.length)];
+		newEclair.set({cell: cellId});
+		this.$el.html(this.template(newEclair.toJSON()));
 		return this;
 	},
 });
