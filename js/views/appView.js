@@ -49,10 +49,7 @@ var AppView = Backbone.View.extend({
 		selectedCell = e.currentTarget
 		cellId = selectedCell.id;
 		turnX = new OpponentX();
-		turnX.set({cell: cellId});
+		newImg = turnX.get('img');
 		console.log('currentTarget', e.currentTarget);
-		console.log('turnX', turnX);
-		console.log($('#' + cellId));
-
 	}
 });
