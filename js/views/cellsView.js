@@ -6,7 +6,6 @@ var CellsView = Backbone.View.extend({
 	render: function() {
 		cellsCollection.each(function(model) {
 		cellView = new CellView({model: model});
-		console.log(cellView);
 		$('#grid').append(cellView.el);
 		});
 	},
