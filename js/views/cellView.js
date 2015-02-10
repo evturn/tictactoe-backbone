@@ -5,14 +5,21 @@ var CellView = Backbone.View.extend({
 		this.render();
 	},
 	events: {
-		'click .cell': 'isUsed'
+		'click .cell': 'moveMade'
 	},
 	render: function() {
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	},
-	isUsed: function(e) {
+	moveMade: function(e) {
 		e.preventDefault();
+		if (gamePlay === []) {
+			this.replaceCell();
+		} else {
+			this.isUsed();
+		}
+	},
+	isUsed: function() {
 		usedCell = this.model.get('cell');
 		if ($.inArray(usedCell, gamePlay) !== -1) {
 			alert('It\s taken. Are you blind?');
