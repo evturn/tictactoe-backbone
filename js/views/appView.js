@@ -7,18 +7,38 @@ var AppView = Backbone.View.extend({
 	events: {
 		'click .cell': 'replaceCell'
 	},
-	render: function() {
-		
-		
+	buildGame: function() {
+		this.rowA();
 		
 	},
-	buildGame: function() {
-		counter = 0;
-		totalCells  = 3;
-		for (totalCells - 1; totalCells >= 1; totalCells--) {
+	rowA: function() {
+		counter = 1;
+		for (counter + 1; counter <= 3; counter++) {
 			var unplayed = new Unplayed;
-			gridId = totalCells;
-			unplayed.set({cell: 'a' + totalCells})
+			gridId = counter;
+			unplayed.set({cell: 'a' + gridId})
+			this.$el.append(this.cellTemplate(unplayed.toJSON()));
+			console.log(unplayed);
+		};
+		this.rowB();
+	},
+	rowB: function() {
+		counter = 1;
+		for (counter + 1; counter <= 3; counter++) {
+			var unplayed = new Unplayed;
+			gridId = counter;
+			unplayed.set({cell: 'b' + gridId})
+			this.$el.append(this.cellTemplate(unplayed.toJSON()));
+			console.log(unplayed);
+		};
+		this.rowC();
+	},
+		rowC: function() {
+		counter = 1;
+		for (counter + 1; counter <= 3; counter++) {
+			var unplayed = new Unplayed;
+			gridId = counter;
+			unplayed.set({cell: 'c' + gridId})
 			this.$el.append(this.cellTemplate(unplayed.toJSON()));
 			console.log(unplayed);
 		};
