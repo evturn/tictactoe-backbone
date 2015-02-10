@@ -3,8 +3,13 @@ body {
 }
 
 .cell {
-	background-color: #fff;
-	height: 200px;
-	width: 200px;
 	border: 1px solid black;
+	
+}
+
+
+
+img {
+	max-width: 400px;
+	height: auto;
 }
