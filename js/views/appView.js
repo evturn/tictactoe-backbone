@@ -1,20 +1,26 @@
 var AppView = Backbone.View.extend({
-	el: '#grid',
-	unplayedTemplate: _.template($('#grid-template').html()),
+	el: '#row-a',
+	cellTemplate: _.template($('#cell-template').html()),
 	initialize: function() {
-		this.render();
+		this.buildGame();
 	},
 	events: {
 		'click .cell': 'replaceCell'
 	},
 	render: function() {
-		var unplayed = new Unplayed;
-		this.$el.html(this.unplayedTemplate(unplayed.toJSON()));
-		return this;
+		
+		
+		
 	},
-	replaceCell: function(e) {
-		e.preventDefault();
-		here = $(this).click();
-		console.log(here.nextSibling);
-	},
+	buildGame: function() {
+		counter = 0;
+		totalCells  = 3;
+		for (totalCells - 1; totalCells >= 1; totalCells--) {
+			var unplayed = new Unplayed;
+			gridId = totalCells;
+			unplayed.set({cell: 'a' + totalCells})
+			this.$el.append(this.cellTemplate(unplayed.toJSON()));
+			console.log(unplayed);
+		};
+	}
 });
