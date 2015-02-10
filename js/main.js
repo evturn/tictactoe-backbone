@@ -17,6 +17,7 @@ function fetchRow(rowLetter) {
 $(function() {
 
 cells = new Cells(newCells);
+new CellsView(cells);
 
 
 });
