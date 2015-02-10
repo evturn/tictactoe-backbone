@@ -1,0 +1,10 @@
+body {
+  background-color: #000;
+}
+
+.cell {
+	background-color: #fff;
+	height: 200px;
+	width: 200px;
+	border: 1px solid black;
+}
