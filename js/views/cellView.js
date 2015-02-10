@@ -12,5 +12,8 @@ var CellView = Backbone.View.extend({
 	},
 	replaceCell: function(e) {
 		e.preventDefault();
+		played = this.model.set({img: 'img/o-1.jpg'});
+		this.$el.html(this.template(played.toJSON()));
+		return this;
 	},
 });
