@@ -28,7 +28,7 @@ var turn0 = [
 ];
 
 
-new AppView();
+appView = new AppView();
 
 
 $(function() {
