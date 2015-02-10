@@ -19,7 +19,7 @@ var possibleWins = [
     [ $c1, $b2, $a3 ]
 ];
 
-var turn0 = [
+var turnO = [
 	{img: 'img/o-1.jpg'},
 	{img: 'img/o-2.jpg'},
 	{img: 'img/o-3.jpg'},
@@ -28,7 +28,7 @@ var turn0 = [
 ];
 
 
-new CellView();
+new Cells();
 
 
 $(function() {
