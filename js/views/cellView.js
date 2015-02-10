@@ -12,8 +12,11 @@ var CellView = Backbone.View.extend({
 	},
 	replaceCell: function(e) {
 		e.preventDefault();
-		played = this.model.set({img: 'img/o-1.jpg'});
-		this.$el.html(this.template(played.toJSON()));
+		cellId = this.model.get('cell');
+		allDonuts = donutsCollection.models;
+		newDonut = allDonuts[Math.floor(Math.random()*allDonuts.length)];
+		newDonut.set({cell: cellId});
+		this.$el.html(this.template(newDonut.toJSON()));
 		return this;
 	},
 });
