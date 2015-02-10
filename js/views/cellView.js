@@ -4,17 +4,9 @@ var CellView = Backbone.View.extend({
 	initialize: function() {
 		this.render();
 	},
-	events: {
-		'click .cell': 'replaceCell'
-	},
+	
 	render: function() {
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
-	},
-	replaceCell: function(e) {
-		e.preventDefault();
-		selectedCell = e.currentTarget
-		cellId = selectedCell.id;
-		console.log('currentTarget', e.currentTarget);
 	},
 });

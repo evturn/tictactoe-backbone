@@ -1,3 +1,27 @@
+newCells = [];
+fetchRow('a');
+fetchRow('b');
+fetchRow('c');
+
+function fetchRow(rowLetter) {
+  counter = 1;
+  for (counter + 1; counter <= 3; counter++) {
+      cellId = rowLetter + counter;
+      var cell = new Cell({cell: cellId});
+      newCells.push(cell);
+      console.log(cell);
+  };
+}
+
+
+$(function() {
+
+cells = new Cells(newCells);
+
+
+});
+
+
 var $a1 = $('#a1');
 var $a2 = $('#a2');
 var $a3 = $('#a3');
@@ -28,11 +52,4 @@ var turnO = [
 ];
 
 
-new Cells();
-
-
-$(function() {
-
-
-});
 
