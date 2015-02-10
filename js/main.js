@@ -19,6 +19,16 @@ var possibleWins = [
     [ $c1, $b2, $a3 ]
 ];
 
+var turn0 = [
+	{img: 'img/o-1.jpg'},
+	{img: 'img/o-2.jpg'},
+	{img: 'img/o-3.jpg'},
+	{img: 'img/o-4.jpg'},
+	{img: 'img/o-5.jpg'}
+];
+
+
 $(function() {
 	new AppView();
 });
+
