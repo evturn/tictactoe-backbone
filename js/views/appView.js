@@ -1,5 +1,5 @@
 var AppView = Backbone.View.extend({
-	el: '#row-a',
+	el: '#grid',
 	cellTemplate: _.template($('#cell-template').html()),
 	initialize: function() {
 		this.buildGame();
@@ -8,8 +8,7 @@ var AppView = Backbone.View.extend({
 		'click .cell': 'replaceCell'
 	},
 	buildGame: function() {
-		this.rowA();
-		
+		this.rowA();	
 	},
 	rowA: function() {
 		counter = 1;

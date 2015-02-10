@@ -9,3 +9,8 @@ img {
 	padding-bottom: 20px;
 }
 
+#grid {
+	max-height: 800px;
+	max-width: 800px;
+}
+
