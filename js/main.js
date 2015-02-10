@@ -1,3 +1,26 @@
+newCells = [];
+buildRows('a');
+buildRows('b');
+buildRows('c');
+function buildRows(rowLetter) {
+  counter = 1;
+  for (counter + 1; counter <= 3; counter++) {
+    var unplayed = new Unplayed;
+    cellId = rowLetter +counter;
+    unplayed.set({cell: cellId})
+    cellView = new CellView({model: unplayed}); 
+    newCells.push(unplayed);
+  };
+};
+
+
+
+
+$(function() {
+  cellsCollection = new CellsCollection(newCells);
+  new CellsView(cellsCollection);
+});
+
 var $a1 = $('#a1');
 var $a2 = $('#a2');
 var $a3 = $('#a3');
@@ -26,13 +49,3 @@ var turn0 = [
 	{img: 'img/o-4.jpg'},
 	{img: 'img/o-5.jpg'}
 ];
-
-
-appView = new AppView();
-
-
-$(function() {
-
-
-});
-
