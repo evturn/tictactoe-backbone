@@ -1,7 +1,7 @@
 var CellView = Backbone.View.extend({
 	template: _.template($('#cell-template').html()),
 	initialize: function() {
-		gamePlay = [];
+		occupiedCells = [];
 		gameStatus = [];
 		turn = 1;
 		turns = [2, 4, 6, 8];
@@ -14,46 +14,58 @@ var CellView = Backbone.View.extend({
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	},
+	moveMade: function(e) {
+		e.preventDefault();
+		targetCell = this.model.get('cell');
+		console.log('moveMade says Cell:', targetCell);
+		if (turn === 1) {
+			this.addEclair();
+			occupiedCells.push(targetCell);
+			console.log('moveMade says occupiedCells << ' + targetCell);
+			console.log('moveMade calling addEclair');
+		} else {
+			this.isUsed();
+			console.log('moveMade calling isUsed');
+		}
+	},
 	alternateTurn: function() {
 		if ($.inArray(turn, turns) === -1) {
 			this.addEclair();
+			console.log('alternateTurn calling addEclair');
+			occupiedCells.push(targetCell);
+			console.log('alternateTurn says occupiedCells << ' + targetCell);
 		} else {
 			this.addDonut();
 		}
 	},
 	isUsed: function() {
-		usedCell = this.model.get('cell');
-		if ($.inArray(usedCell, gamePlay) !== -1) {
+		if ($.inArray(targetCell, occupiedCells) === -1) {
 			alert('It\s taken. Are you blind?');
 		} else {
-			gamePlay.push(usedCell);
 			this.alternateTurn();	
-		}
-	},
-	moveMade: function(e) {
-		e.preventDefault();
-		if (turn == 1) {
-			this.addEclair();
-		} else {
-			this.isUsed();
 		}
 	},
 	addDonut: function() {
 		turn = turn + 1
-		usedCell = this.model.get('cell');
+		console.log('addDonut says Turn:', turn);
+		occupiedCells.push(targetCell);
+		console.log('addDonut says occupiedCells << ' + targetCell);
+		targetCell = this.model.get('cell');
 		allDonuts = donutsCollection.models;
 		newDonut = allDonuts[Math.floor(Math.random()*allDonuts.length)];
-		newDonut.set({cell: usedCell});
+		newDonut.set({cell: targetCell});
 		this.claimCell(newDonut);
 		this.$el.html(this.template(newDonut.toJSON()));
 		return this;
 	},
 	addEclair: function() {
 		turn = turn + 1
-		usedCell = this.model.get('cell');
+		console.log('addEclair says Turn:', turn);
+		occupiedCells.push(targetCell);
+		console.log('addEclair says occupiedCells << ' + targetCell);
 		allEclairs = eclairsCollection.models;
 		newEclair = allEclairs[Math.floor(Math.random()*allEclairs.length)];
-		newEclair.set({cell: usedCell});
+		newEclair.set({cell: targetCell});
 		this.claimCell(newEclair);
 		this.$el.html(this.template(newEclair.toJSON()));
 		return this;
@@ -64,9 +76,10 @@ var CellView = Backbone.View.extend({
 			outcome = possibleWins[i]
 			this.checkIndex(outcome);
 		};
+
 	},
 	checkIndex: function(outcome) {
-		index = outcome.indexOf(usedCell);
+		index = outcome.indexOf(targetCell);
 		if (index !== -1) {
 			outcome[index] = claimedCell;
 			gameStatus.push(outcome);
@@ -74,7 +87,7 @@ var CellView = Backbone.View.extend({
 		this.checkStatus();
 	},
 	checkStatus: function() {
-		console.log(gameStatus);
 		
+
 	},
 });

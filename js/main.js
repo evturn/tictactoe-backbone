@@ -1,13 +1,10 @@
 newCells = [];
-buildRows('a');
-buildRows('b');
-buildRows('c');
-function buildRows(rowLetter) {
+buildRows();
+function buildRows() {
   counter = 1;
-  for (counter + 1; counter <= 3; counter++) {
+  for (counter + 1; counter <= 9; counter++) {
     var unplayed = new Unplayed;
-    cellId = rowLetter + counter;
-    unplayed.set({cell: cellId})
+    unplayed.set({cell: counter})
     cellView = new CellView({model: unplayed}); 
     newCells.push(unplayed);
   };
@@ -34,13 +31,13 @@ eclairsCollection = new EclairsCollection(newEclairs);
 
 
 var possibleWins = [
-    [ 'a1', 'a2', 'a3' ],
-    [ 'b1', 'b2', 'b3' ],
-    [ 'c1', 'c2', 'c3' ],
-    [ 'a1', 'b1', 'c1' ],
-    [ 'a2', 'b2', 'c2' ],
-    [ 'a1', 'b2', 'c3' ],
-    [ 'c1', 'b2', 'a3' ]
+    [ 0, 1, 2 ],
+    [ 3, 4, 5 ],
+    [ 6, 7, 8 ],
+    [ 0, 3, 6 ],
+    [ 1, 4, 7 ],
+    [ 0, 4, 8 ],
+    [ 6, 4, 2 ]
 ];
 
 
