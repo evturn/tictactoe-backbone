@@ -15,31 +15,22 @@ var CellView = Backbone.View.extend({
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	},
-	moveMade: function() {
-		
-		
-		console.log('turn is', turn);
-		if (isOdd(turn) !== 0) {
-			this.addEclair();
-			occupiedCells.push(targetCell);
-		} else {
-			this.isUsed();
-		}
-	},
 	isUsed: function(e) {
 		targetCell = this.model.get('cell');
-		if ($.inArray(targetCell, occupiedCells) !== -1) {
-			alert('It\s taken. Are you blind?');
-		} else {
+		if ($.inArray(targetCell, occupiedCells) === -1) {
 			occupiedCells.push(targetCell);
-			this.alternateTurn();	
+			this.whoseTurn();
+		} else {
+			console.log('This is taken. Are you blind?\nYou\'re turns are currently at ' + turn);
 		}
 	},
-	alternateTurn: function() {
-		if ($.inArray(turn, donutTurns) === -1) {
+	whoseTurn: function() {
+		if (isOdd(turn) !== 0) {
 			this.addEclair();
+			
 		} else {
 			this.addDonut();
+			
 		}
 	},
 	addDonut: function() {
