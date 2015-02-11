@@ -1,3 +1,3 @@
 var CellsCollection = Backbone.Collection.extend({
-	model: Unplayed,
+	model: Cell,
 });

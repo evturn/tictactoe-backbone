@@ -8,31 +8,26 @@
 	<title>Tic Tac Toe</title>
 </head>
 <body>
-	<div class="container-fluid">
-		
-		<div class="col-xs-12 col-sm-12 col-md-12" id="grid">	
-	  </div>
-  
+	<div class="container-fluid">		
+		<div class="col-xs-12 col-sm-12 col-md-12" id="grid"></div>
   </div>
-	
+
 	<script type="text/template" id="cell-template">
-		
-      <div class="col-xs-4 col-sm-4 col-md-4 cell" id="<%= cell %>">
-      	<a><img src="<%= img %>"></a>
-      </div>
-  	
+    <div class="col-xs-4 col-sm-4 col-md-4 cell" id="<%= cell %>">
+    	<a><img src="<%= img %>"></a>
+    </div>
 	</script>
 
   <script type="text/javascript" src="js/lib/jquery.js"></script>
   <script type="text/javascript" src="js/lib/underscore.js"></script>
   <script type="text/javascript" src="js/lib/backbone.js"></script>
   <script type="text/javascript" src="js/lib/bootstrap.js"></script>
-  <script type="text/javascript" src="js/models/unplayed.js"></script>
+  <script type="text/javascript" src="js/models/cell.js"></script>
   <script type="text/javascript" src="js/models/donut.js"></script>
   <script type="text/javascript" src="js/models/eclair.js"></script>
   <script type="text/javascript" src="js/collections/CellsCollection.js"></script>
-    <script type="text/javascript" src="js/collections/DonutsCollection.js"></script>
-    <script type="text/javascript" src="js/collections/EclairsCollection.js"></script>
+  <script type="text/javascript" src="js/collections/DonutsCollection.js"></script>
+  <script type="text/javascript" src="js/collections/EclairsCollection.js"></script>
   <script type="text/javascript" src="js/views/cellView.js"></script>
   <script type="text/javascript" src="js/views/cellsView.js"></script>
   <script type="text/javascript" src="js/main.js"></script>

@@ -3,13 +3,13 @@ body {
 }
 
 img {
-	border: 1px solid black;
 	max-width: 100%;
 	height: auto;
 	padding-bottom: 20px;
 }
 
 #grid {
+	margin-top: 20px;
 	max-height: 800px;
 	max-width: 800px;
 }

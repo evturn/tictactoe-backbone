@@ -1,15 +1,43 @@
-newCells = [];
-buildRows('a');
-buildRows('b');
-buildRows('c');
-function buildRows(rowLetter) {
+var donutData = [
+  {img: 'img/o-1.jpg', emblem: 'o'},
+  {img: 'img/o-2.jpg', emblem: 'o'},
+  {img: 'img/o-3.jpg', emblem: 'o'},
+  {img: 'img/o-4.jpg', emblem: 'o'},
+  {img: 'img/o-5.jpg', emblem: 'o'}
+];
+
+var eclairData = [
+  {img: 'img/x-1.jpg', emblem: 'x'},
+  {img: 'img/x-2.jpg', emblem: 'x'},
+  {img: 'img/x-3.jpg', emblem: 'x'},
+  {img: 'img/x-4.jpg', emblem: 'x'},
+  {img: 'img/x-5.jpg', emblem: 'x'}
+];
+
+var winningOutcomes = [
+    [ 'a1', 'a2', 'a3' ],
+    [ 'b1', 'b2', 'b3' ],
+    [ 'c1', 'c2', 'c3' ],
+    [ 'a1', 'b1', 'c1' ],
+    [ 'a2', 'b2', 'c2' ],
+    [ 'a1', 'b2', 'c3' ],
+    [ 'c1', 'b2', 'a3' ]
+];
+
+cellGrid = [];
+
+buildRow('a');
+buildRow('b');
+buildRow('c');
+
+function buildRow(rowLetter) {
   counter = 1;
   for (counter + 1; counter <= 3; counter++) {
-    var unplayed = new Unplayed;
+    var cell = new Cell;
     cellId = rowLetter + counter;
-    unplayed.set({cell: cellId})
-    cellView = new CellView({model: unplayed}); 
-    newCells.push(unplayed);
+    cell.set({cell: cellId})
+    cellView = new CellView({model: cell}); 
+    cellGrid.push(cell);
   };
 };
 
@@ -26,42 +54,10 @@ function compareValues(array) {
   return true;
 };
 
-
-var newDonuts = [
-	{img: 'img/o-1.jpg', emblem: 'o'},
-	{img: 'img/o-2.jpg', emblem: 'o'},
-	{img: 'img/o-3.jpg', emblem: 'o'},
-	{img: 'img/o-4.jpg', emblem: 'o'},
-	{img: 'img/o-5.jpg', emblem: 'o'}
-];
-
-var newEclairs = [
-  {img: 'img/x-1.jpg', emblem: 'x'},
-  {img: 'img/x-2.jpg', emblem: 'x'},
-  {img: 'img/x-3.jpg', emblem: 'x'},
-  {img: 'img/x-4.jpg', emblem: 'x'},
-  {img: 'img/x-5.jpg', emblem: 'x'}
-];
-
-donutsCollection = new DonutsCollection(newDonuts);
-eclairsCollection = new EclairsCollection(newEclairs);
-
-
-var possibleWins = [
-    [ 'a1', 'a2', 'a3' ],
-    [ 'b1', 'b2', 'b3' ],
-    [ 'c1', 'c2', 'c3' ],
-    [ 'a1', 'b1', 'c1' ],
-    [ 'a2', 'b2', 'c2' ],
-    [ 'a1', 'b2', 'c3' ],
-    [ 'c1', 'b2', 'a3' ]
-];
-
-
+donutsCollection = new DonutsCollection(donutData);
+eclairsCollection = new EclairsCollection(eclairData);
 
 $(function() {
-
-  cellsCollection = new CellsCollection(newCells);
+  cellsCollection = new CellsCollection(cellGrid);
   new CellsView(cellsCollection);
-
 });

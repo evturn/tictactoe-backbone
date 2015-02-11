@@ -18,7 +18,7 @@ var CellView = Backbone.View.extend({
 			occupiedCells.push(targetCell);
 			this.whoseTurn();
 		} else {
-			console.log('This is taken. Are you blind?\nYou\'re turns are currently at ' + turn);
+			alert('This is taken. Are you blind?');
 		}
 	},
 	whoseTurn: function() {
@@ -48,20 +48,23 @@ var CellView = Backbone.View.extend({
 	},
 	occupyCell: function(model) {
 		emblem = model.get('emblem');
-		for (var i = possibleWins.length - 1; i >= 0; i--) {
-			outcome = possibleWins[i]
+		for (var i = winningOutcomes.length - 1; i >= 0; i--) {
+			outcome = winningOutcomes[i]
 			idx = outcome.indexOf(targetCell);
 			if (idx !== -1) {
 				outcome[idx] = emblem;
 			}			
 		};
-		this.checkScore(possibleWins);
+		this.checkScore(winningOutcomes);
 	},
 	checkScore: function(scores) {
 		for (var i = scores.length - 1; i >= 0; i--) {
 			currentResults = scores[i]
-			if (compareValues(currentResults) === true) {
-				alert('Somebody just won.');
+			if (compareValues(currentResults) === true && currentResults[0] === 'x') {
+				alert('Eclairs Win! Eclairs forverz!');
+			}
+			else if (compareValues(currentResults) === true && currentResults[0] === 'o') {
+				alert('Donuts, can\'t live with them because they can\'t afford rent');
 			}
 		};
 	},
