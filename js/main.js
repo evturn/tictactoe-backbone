@@ -14,19 +14,19 @@ function buildRows(rowLetter) {
 };
 
 var newDonuts = [
-	{img: 'img/o-1.jpg', player: 'donut'},
-	{img: 'img/o-2.jpg', player: 'donut'},
-	{img: 'img/o-3.jpg', player: 'donut'},
-	{img: 'img/o-4.jpg', player: 'donut'},
-	{img: 'img/o-5.jpg', player: 'donut'}
+	{img: 'img/o-1.jpg', player: 'o'},
+	{img: 'img/o-2.jpg', player: 'o'},
+	{img: 'img/o-3.jpg', player: 'o'},
+	{img: 'img/o-4.jpg', player: 'o'},
+	{img: 'img/o-5.jpg', player: 'o'}
 ];
 
 var newEclairs = [
-  {img: 'img/x-1.jpg', player: 'eclair'},
-  {img: 'img/x-2.jpg', player: 'eclair'},
-  {img: 'img/x-3.jpg', player: 'eclair'},
-  {img: 'img/x-4.jpg', player: 'eclair'},
-  {img: 'img/x-5.jpg', player: 'eclair'}
+  {img: 'img/x-1.jpg', player: 'x'},
+  {img: 'img/x-2.jpg', player: 'x'},
+  {img: 'img/x-3.jpg', player: 'x'},
+  {img: 'img/x-4.jpg', player: 'x'},
+  {img: 'img/x-5.jpg', player: 'x'}
 ];
 
 donutsCollection = new DonutsCollection(newDonuts);
@@ -42,6 +42,8 @@ var possibleWins = [
     [ 'a1', 'b2', 'c3' ],
     [ 'c1', 'b2', 'a3' ]
 ];
+
+
 
 $(function() {
 

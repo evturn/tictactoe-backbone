@@ -43,6 +43,7 @@ var CellView = Backbone.View.extend({
 		allDonuts = donutsCollection.models;
 		newDonut = allDonuts[Math.floor(Math.random()*allDonuts.length)];
 		newDonut.set({cell: cellId});
+		this.claimCell(newDonut);
 		this.$el.html(this.template(newDonut.toJSON()));
 		return this;
 	},
@@ -51,7 +52,18 @@ var CellView = Backbone.View.extend({
 		allEclairs = eclairsCollection.models;
 		newEclair = allEclairs[Math.floor(Math.random()*allEclairs.length)];
 		newEclair.set({cell: cellId});
+		this.claimCell(newEclair);
 		this.$el.html(this.template(newEclair.toJSON()));
 		return this;
+	},
+	claimCell: function(newTurn) {
+		console.log('newTurn', newTurn);
+		possibleWins.forEach(function(outcome) {
+			if (_.contains(outcome, cellId) == true) {
+				idx = outcome.indexOf(cellId);
+				console.log(idx)
+			}
+			
+		});
 	},
 });
