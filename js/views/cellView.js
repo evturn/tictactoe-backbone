@@ -40,30 +40,36 @@ var CellView = Backbone.View.extend({
 	},
 	addDonut: function() {
 		turn = turn + 1
+		usedCell = this.model.get('cell');
 		allDonuts = donutsCollection.models;
 		newDonut = allDonuts[Math.floor(Math.random()*allDonuts.length)];
-		newDonut.set({cell: cellId});
+		newDonut.set({cell: usedCell});
 		this.claimCell(newDonut);
 		this.$el.html(this.template(newDonut.toJSON()));
 		return this;
 	},
 	addEclair: function() {
 		turn = turn + 1
+		usedCell = this.model.get('cell');
 		allEclairs = eclairsCollection.models;
 		newEclair = allEclairs[Math.floor(Math.random()*allEclairs.length)];
-		newEclair.set({cell: cellId});
+		newEclair.set({cell: usedCell});
 		this.claimCell(newEclair);
 		this.$el.html(this.template(newEclair.toJSON()));
 		return this;
 	},
 	claimCell: function(newTurn) {
-		console.log('newTurn', newTurn);
-		possibleWins.forEach(function(outcome) {
-			if (_.contains(outcome, cellId) == true) {
-				idx = outcome.indexOf(cellId);
-				console.log(idx)
-			}
-			
-		});
+		claimedCell = newTurn.get('player');
+		for (var i = possibleWins.length - 1; i >= 0; i--) {
+			outcome = possibleWins[i]
+			this.checkIndex(outcome);
+		};
+	},
+	checkIndex: function(outcome){
+		index = outcome.indexOf(usedCell);
+		if (index !== -1) {
+			outcome[index] = claimedCell;
+			possibleWins.push(outcome);
+		}
 	},
 });
