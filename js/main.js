@@ -17,6 +17,16 @@ function isOdd(number) {
   return number % 2;
 };
 
+function compareValues(array) {
+  for(var i = 1; i < array.length; i++) {
+      if (array[i] !== array[0]) {
+          return false;
+      }
+  };
+  return true;
+};
+
+
 var newDonuts = [
 	{img: 'img/o-1.jpg', emblem: 'o'},
 	{img: 'img/o-2.jpg', emblem: 'o'},

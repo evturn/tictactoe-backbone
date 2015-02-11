@@ -60,7 +60,9 @@ var CellView = Backbone.View.extend({
 	checkScore: function(scores) {
 		for (var i = scores.length - 1; i >= 0; i--) {
 			currentResults = scores[i]
-			console.log(currentResults);
+			if (compareValues(currentResults) === true) {
+				alert('Somebody just won.');
+			}
 		};
 	},
 });
