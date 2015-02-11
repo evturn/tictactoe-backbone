@@ -2,10 +2,7 @@ var CellView = Backbone.View.extend({
 	template: _.template($('#cell-template').html()),
 	initialize: function() {
 		occupiedCells = [];
-		gameStatus = [];
 		turn = 1;
-		eclairTurns = [1, 3, 5, 9];
-		donutTurns = [2, 4, 6, 8];
 		this.render();
 	},
 	events: {
@@ -53,20 +50,17 @@ var CellView = Backbone.View.extend({
 		emblem = model.get('emblem');
 		for (var i = possibleWins.length - 1; i >= 0; i--) {
 			outcome = possibleWins[i]
-			console.log(outcome);
 			idx = outcome.indexOf(targetCell);
 			if (idx !== -1) {
 				outcome[idx] = emblem;
 			}			
 		};
-		return possibleWins;
+		this.checkScore(possibleWins);
 	},
-	checkIndex: function(outcome) {
-		index = outcome.indexOf(targetCell);
-		if (index !== -1) {
-			outcome[index] = emblem;
-			gameStatus.push(outcome);
-		}
+	checkScore: function(scores) {
+		for (var i = scores.length - 1; i >= 0; i--) {
+			currentResults = scores[i]
+			console.log(currentResults);
+		};
 	},
-	
 });
