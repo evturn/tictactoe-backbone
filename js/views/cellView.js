@@ -3,7 +3,7 @@ var CellView = Backbone.View.extend({
 	initialize: function() {
 		gamePlay = [];
 		turn = 1;
-		turns = [1, 3, 5, 7, 9];
+		turns = [2, 4, 6, 8];
 		this.render();
 	},
 	events: {
@@ -15,17 +15,18 @@ var CellView = Backbone.View.extend({
 	},
 	moveMade: function(e) {
 		e.preventDefault();
-		if (turn === 1) {
+		console.log(turn);
+		if (turn == 1) {
 			this.addEclair();
 		} else {
 			this.isUsed();
 		}
 	},
 	alternateTurn: function() {
-		if ($.inArray(turn, turns) !== -1) {
-			this.addDonut();
-		} else {
+		if ($.inArray(turn, turns) === -1) {
 			this.addEclair();
+		} else {
+			this.addDonut();
 		}
 	},
 	isUsed: function() {
@@ -38,6 +39,7 @@ var CellView = Backbone.View.extend({
 		}
 	},
 	addDonut: function() {
+		turn = turn + 1
 		allDonuts = donutsCollection.models;
 		newDonut = allDonuts[Math.floor(Math.random()*allDonuts.length)];
 		newDonut.set({cell: cellId});
@@ -45,6 +47,7 @@ var CellView = Backbone.View.extend({
 		return this;
 	},
 	addEclair: function() {
+		turn = turn + 1
 		allEclairs = eclairsCollection.models;
 		newEclair = allEclairs[Math.floor(Math.random()*allEclairs.length)];
 		newEclair.set({cell: cellId});
