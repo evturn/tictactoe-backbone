@@ -26,16 +26,13 @@ var CellView = Backbone.View.extend({
 	},
 	whoseTurn: function() {
 		if (isOdd(turn) !== 0) {
-			this.addEclair();
-			
+			this.addEclair();	
 		} else {
 			this.addDonut();
-			
 		}
 	},
 	addDonut: function() {
-		turn = turn + 1
-		
+		turn = turn + 1		
 		allDonuts = donutsCollection.models;
 		newDonut = allDonuts[Math.floor(Math.random()*allDonuts.length)];
 		newDonut.set({cell: targetCell});
@@ -52,8 +49,8 @@ var CellView = Backbone.View.extend({
 		this.$el.html(this.template(newEclair.toJSON()));
 		return this;
 	},
-	claimCell: function(newTurn) {
-		claimedCell = newTurn.get('player');
+	claimCell: function(model) {
+		claimedCell = model.get('player');
 		for (var i = possibleWins.length - 1; i >= 0; i--) {
 			outcome = possibleWins[i]
 			this.checkIndex(outcome);
