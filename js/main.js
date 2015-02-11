@@ -18,19 +18,19 @@ function isOdd(number) {
 };
 
 var newDonuts = [
-	{img: 'img/o-1.jpg', player: 'o'},
-	{img: 'img/o-2.jpg', player: 'o'},
-	{img: 'img/o-3.jpg', player: 'o'},
-	{img: 'img/o-4.jpg', player: 'o'},
-	{img: 'img/o-5.jpg', player: 'o'}
+	{img: 'img/o-1.jpg', emblem: 'o'},
+	{img: 'img/o-2.jpg', emblem: 'o'},
+	{img: 'img/o-3.jpg', emblem: 'o'},
+	{img: 'img/o-4.jpg', emblem: 'o'},
+	{img: 'img/o-5.jpg', emblem: 'o'}
 ];
 
 var newEclairs = [
-  {img: 'img/x-1.jpg', player: 'x'},
-  {img: 'img/x-2.jpg', player: 'x'},
-  {img: 'img/x-3.jpg', player: 'x'},
-  {img: 'img/x-4.jpg', player: 'x'},
-  {img: 'img/x-5.jpg', player: 'x'}
+  {img: 'img/x-1.jpg', emblem: 'x'},
+  {img: 'img/x-2.jpg', emblem: 'x'},
+  {img: 'img/x-3.jpg', emblem: 'x'},
+  {img: 'img/x-4.jpg', emblem: 'x'},
+  {img: 'img/x-5.jpg', emblem: 'x'}
 ];
 
 donutsCollection = new DonutsCollection(newDonuts);

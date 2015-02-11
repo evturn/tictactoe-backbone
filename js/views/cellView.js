@@ -34,32 +34,37 @@ var CellView = Backbone.View.extend({
 	addDonut: function() {
 		turn = turn + 1		
 		allDonuts = donutsCollection.models;
-		newDonut = allDonuts[Math.floor(Math.random()*allDonuts.length)];
-		newDonut.set({cell: targetCell});
-		this.claimCell(newDonut);
-		this.$el.html(this.template(newDonut.toJSON()));
+		donutModel = allDonuts[Math.floor(Math.random()*allDonuts.length)];
+		donutModel.set({cell: targetCell});
+		this.occupyCell(donutModel);
+		this.$el.html(this.template(donutModel.toJSON()));
 		return this;
 	},
 	addEclair: function() {
 		turn = turn + 1
 		allEclairs = eclairsCollection.models;
-		newEclair = allEclairs[Math.floor(Math.random()*allEclairs.length)];
-		newEclair.set({cell: targetCell});
-		this.claimCell(newEclair);
-		this.$el.html(this.template(newEclair.toJSON()));
+		eclairModel = allEclairs[Math.floor(Math.random()*allEclairs.length)];
+		eclairModel.set({cell: targetCell});
+		this.occupyCell(eclairModel);
+		this.$el.html(this.template(eclairModel.toJSON()));
 		return this;
 	},
-	claimCell: function(model) {
-		claimedCell = model.get('player');
+	occupyCell: function(model) {
+		emblem = model.get('emblem');
 		for (var i = possibleWins.length - 1; i >= 0; i--) {
 			outcome = possibleWins[i]
-			this.checkIndex(outcome);
+			console.log(outcome);
+			idx = outcome.indexOf(targetCell);
+			if (idx !== -1) {
+				outcome[idx] = emblem;
+			}			
 		};
+		return possibleWins;
 	},
 	checkIndex: function(outcome) {
 		index = outcome.indexOf(targetCell);
 		if (index !== -1) {
-			outcome[index] = claimedCell;
+			outcome[index] = emblem;
 			gameStatus.push(outcome);
 		}
 	},
