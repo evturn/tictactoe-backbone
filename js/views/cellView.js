@@ -1,59 +1,62 @@
 var CellView = Backbone.View.extend({
 	template: _.template($('#cell-template').html()),
 	initialize: function() {
-		gamePlay = [];
+		occupiedCells = [];
 		gameStatus = [];
 		turn = 1;
-		turns = [2, 4, 6, 8];
+		eclairTurns = [1, 3, 5, 9];
+		donutTurns = [2, 4, 6, 8];
 		this.render();
 	},
 	events: {
-		'click .cell': 'moveMade'
+		'click .cell': 'isUsed'
 	},
 	render: function() {
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	},
+	moveMade: function() {
+		
+		
+		console.log('turn is', turn);
+		if (isOdd(turn) !== 0) {
+			this.addEclair();
+			occupiedCells.push(targetCell);
+		} else {
+			this.isUsed();
+		}
+	},
+	isUsed: function(e) {
+		targetCell = this.model.get('cell');
+		if ($.inArray(targetCell, occupiedCells) !== -1) {
+			alert('It\s taken. Are you blind?');
+		} else {
+			occupiedCells.push(targetCell);
+			this.alternateTurn();	
+		}
+	},
 	alternateTurn: function() {
-		if ($.inArray(turn, turns) === -1) {
+		if ($.inArray(turn, donutTurns) === -1) {
 			this.addEclair();
 		} else {
 			this.addDonut();
 		}
 	},
-	isUsed: function() {
-		usedCell = this.model.get('cell');
-		if ($.inArray(usedCell, gamePlay) !== -1) {
-			alert('It\s taken. Are you blind?');
-		} else {
-			gamePlay.push(usedCell);
-			this.alternateTurn();	
-		}
-	},
-	moveMade: function(e) {
-		e.preventDefault();
-		if (turn == 1) {
-			this.addEclair();
-		} else {
-			this.isUsed();
-		}
-	},
 	addDonut: function() {
 		turn = turn + 1
-		usedCell = this.model.get('cell');
+		
 		allDonuts = donutsCollection.models;
 		newDonut = allDonuts[Math.floor(Math.random()*allDonuts.length)];
-		newDonut.set({cell: usedCell});
+		newDonut.set({cell: targetCell});
 		this.claimCell(newDonut);
 		this.$el.html(this.template(newDonut.toJSON()));
 		return this;
 	},
 	addEclair: function() {
 		turn = turn + 1
-		usedCell = this.model.get('cell');
 		allEclairs = eclairsCollection.models;
 		newEclair = allEclairs[Math.floor(Math.random()*allEclairs.length)];
-		newEclair.set({cell: usedCell});
+		newEclair.set({cell: targetCell});
 		this.claimCell(newEclair);
 		this.$el.html(this.template(newEclair.toJSON()));
 		return this;
@@ -66,15 +69,11 @@ var CellView = Backbone.View.extend({
 		};
 	},
 	checkIndex: function(outcome) {
-		index = outcome.indexOf(usedCell);
+		index = outcome.indexOf(targetCell);
 		if (index !== -1) {
 			outcome[index] = claimedCell;
 			gameStatus.push(outcome);
 		}
-		this.checkStatus();
 	},
-	checkStatus: function() {
-		console.log(gameStatus);
-		
-	},
+	
 });

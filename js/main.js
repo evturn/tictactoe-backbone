@@ -13,6 +13,10 @@ function buildRows(rowLetter) {
   };
 };
 
+function isOdd(number) {
+  return number % 2;
+};
+
 var newDonuts = [
 	{img: 'img/o-1.jpg', player: 'o'},
 	{img: 'img/o-2.jpg', player: 'o'},
