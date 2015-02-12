@@ -57,6 +57,15 @@ function compareValues(array) {
   return true;
 };
 
+function removeValue() {
+  var i = array.indexOf("b");
+  if(i != -1) {
+    array.splice(i, 1);
+  }
+};
+
+
+
 donutsCollection = new DonutsCollection(donutData);
 eclairsCollection = new EclairsCollection(eclairData);
 

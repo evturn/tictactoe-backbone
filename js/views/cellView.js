@@ -26,8 +26,15 @@ var CellView = Backbone.View.extend({
 			this.addEclair();	
 		} else {
 			console.log('CPU turn');
-			this.addDonut();
+			this.donutCPU();
+			// this.addDonut();
 		}
+	},
+	donutCPU: function() {
+		console.log('openCells: ', openCells);
+		openCellIdx = (occupiedCells.length - 1);
+		openCellVal = occupiedCells[openCellIdx];
+		console.log('openCells: ', openCells);
 	},
 	addDonut: function() {
 		turn = turn + 1		
