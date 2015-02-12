@@ -27,7 +27,6 @@ var CellView = Backbone.View.extend({
 		} else {
 			console.log('CPU turn');
 			this.cpuTurn();
-			// this.addDonut();
 		}
 	},
 	cpuTurn: function() {
@@ -36,15 +35,16 @@ var CellView = Backbone.View.extend({
 		openCellVal = occupiedCells[openCellIdx];
 		removeValue(openCells, openCellVal);
 		console.log('openCells: ', openCells);
-		findOpenCell();
+		cpuSelection = openCells[Math.floor(Math.random()*openCells.length)];
+  	this.addDonut();
 	},
 	addDonut: function() {
 		turn = turn + 1		
 		allDonuts = donutsCollection.models;
 		donutModel = allDonuts[Math.floor(Math.random()*allDonuts.length)];
-		donutModel.set({cell: targetCell});
+		donutModel.set({cell: cpuSelection});
 		this.occupyCell(donutModel);
-		this.$el.html(this.template(donutModel.toJSON()));
+		$("#" + cpuSelection).html(this.template(donutModel.toJSON()));
 		return this;
 	},
 	addEclair: function() {
