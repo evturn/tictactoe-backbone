@@ -25,6 +25,7 @@ var CellView = Backbone.View.extend({
 		if (isOdd(turn) !== 0) {
 			this.addEclair();	
 		} else {
+			console.log('CPU turn');
 			this.addDonut();
 		}
 	},

@@ -24,16 +24,20 @@ var winningOutcomes = [
 ];
 
 cellGrid = [];
+openCells = [];
+
 
 buildRow('a');
 buildRow('b');
 buildRow('c');
+
 
 function buildRow(rowLetter) {
   counter = 1;
   for (counter + 1; counter <= 3; counter++) {
     var cell = new Cell;
     cellId = rowLetter + counter;
+    openCells.push(cellId);
     cell.set({cell: cellId})
     cellView = new CellView({model: cell}); 
     cellGrid.push(cell);
@@ -46,9 +50,9 @@ function isOdd(number) {
 
 function compareValues(array) {
   for(var i = 1; i < array.length; i++) {
-      if (array[i] !== array[0]) {
-          return false;
-      }
+    if (array[i] !== array[0]) {
+        return false;
+    }
   };
   return true;
 };
@@ -59,4 +63,10 @@ eclairsCollection = new EclairsCollection(eclairData);
 $(function() {
   cellsCollection = new CellsCollection(cellGrid);
   new CellsView(cellsCollection);
+
+
+
+
+
+
 });
