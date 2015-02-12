@@ -1,7 +1,7 @@
 body {
   background-color: #000;
   color: #fff;
-/*  text-align: center;*/
+  text-align: center;
 }
 
 img {
@@ -11,8 +11,7 @@ img {
 }
 
 #grid {
-	left: 50%;
-	top: 50%;
+	margin-top: 20px;
 	max-height: 800px;
 	width: auto;
 }
