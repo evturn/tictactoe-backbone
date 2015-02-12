@@ -1,5 +1,7 @@
 body {
   background-color: #000;
+  color: #fff;
+/*  text-align: center;*/
 }
 
 img {
@@ -9,8 +11,16 @@ img {
 }
 
 #grid {
-	margin-top: 20px;
+	left: 50%;
+	top: 50%;
 	max-height: 800px;
-	max-width: 800px;
+	width: auto;
 }
 
+.eclair {
+	font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+.donut {
+	font-family: 'Damion', cursive;
+}
