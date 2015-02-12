@@ -44,7 +44,8 @@ var CellView = Backbone.View.extend({
 		donutModel = allDonuts[Math.floor(Math.random()*allDonuts.length)];
 		donutModel.set({cell: cpuSelection});
 		this.occupyCell(donutModel);
-		$("#" + cpuSelection).html(this.template(donutModel.toJSON()));
+		cpuCell = $("#" + cpuSelection);
+		cpuCell.html(this.template(donutModel.toJSON()));
 		return this;
 	},
 	addEclair: function() {
