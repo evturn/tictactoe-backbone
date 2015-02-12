@@ -57,10 +57,10 @@ function compareValues(array) {
   return true;
 };
 
-function removeValue() {
-  var i = array.indexOf("b");
-  if(i != -1) {
-    array.splice(i, 1);
+function removeValue(array, value) {
+  var idx = array.indexOf(value);
+  if (idx != -1) {
+    array.splice(idx, 1);
   }
 };
 

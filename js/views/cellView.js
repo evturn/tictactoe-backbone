@@ -34,6 +34,7 @@ var CellView = Backbone.View.extend({
 		console.log('openCells: ', openCells);
 		openCellIdx = (occupiedCells.length - 1);
 		openCellVal = occupiedCells[openCellIdx];
+		removeValue(openCells, openCellVal);
 		console.log('openCells: ', openCells);
 	},
 	addDonut: function() {
