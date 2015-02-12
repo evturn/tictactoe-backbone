@@ -10,8 +10,7 @@ var eclairData = [
   {img: 'img/x-1.jpg', emblem: 'x'},
   {img: 'img/x-2.jpg', emblem: 'x'},
   {img: 'img/x-3.jpg', emblem: 'x'},
-  {img: 'img/x-4.jpg', emblem: 'x'},
-  {img: 'img/x-5.jpg', emblem: 'x'}
+  {img: 'img/x-4.jpg', emblem: 'x'}
 ];
 
 var winningOutcomes = [
