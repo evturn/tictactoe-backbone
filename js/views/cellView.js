@@ -1,5 +1,6 @@
 var CellView = Backbone.View.extend({
 	template: _.template($('#cell-template').html()),
+	cpuTemplate: _.template($('#cpu-template').html()),
 	initialize: function() {
 		occupiedCells = [];
 		turn = 1;
@@ -45,7 +46,7 @@ var CellView = Backbone.View.extend({
 		donutModel.set({cell: cpuSelection});
 		this.occupyCell(donutModel);
 		cpuCell = $("#" + cpuSelection);
-		cpuCell.html(this.template(donutModel.toJSON()));
+		cpuCell.html(this.cpuTemplate(donutModel.toJSON()));
 		return this;
 	},
 	addEclair: function() {
