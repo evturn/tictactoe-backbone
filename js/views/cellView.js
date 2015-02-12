@@ -66,7 +66,7 @@ var CellView = Backbone.View.extend({
 			idx = outcome.indexOf(targetCell);
 			if (idx !== -1) {
 				outcome[idx] = emblem;
-			}			
+			}
 		};
 		this.checkScore(winningOutcomes);
 	},
@@ -75,10 +75,14 @@ var CellView = Backbone.View.extend({
 			currentResults = scores[i]
 			if (compareValues(currentResults) === true && currentResults[0] === 'x') {
 				alert('Eclairs Win! Eclairs forverz!');
+				this.startOver();
 			}
 			else if (compareValues(currentResults) === true && currentResults[0] === 'o') {
 				alert('Donuts, can\'t live with them because they can\'t afford rent');
 			}
 		};
+	},
+	startOver: function() {
+		console.log('You should do something to restart the game and not be loggin to the console');
 	},
 });

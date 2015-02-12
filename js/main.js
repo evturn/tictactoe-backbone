@@ -64,19 +64,11 @@ function removeValue(array, value) {
   }
 };
 
-
-
-
 donutsCollection = new DonutsCollection(donutData);
 eclairsCollection = new EclairsCollection(eclairData);
 
 $(function() {
   cellsCollection = new CellsCollection(cellGrid);
   new CellsView(cellsCollection);
-
-
-
-
-
 
 });
