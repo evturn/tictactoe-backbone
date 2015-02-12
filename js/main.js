@@ -64,6 +64,11 @@ function removeValue(array, value) {
   }
 };
 
+function findOpenCell() {
+  cpuSelection = openCells[Math.floor(Math.random()*openCells.length)];
+  console.log('I AM CPU I AND I PICK ', cpuSelection);
+};
+
 
 
 donutsCollection = new DonutsCollection(donutData);

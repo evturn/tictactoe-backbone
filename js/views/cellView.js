@@ -26,16 +26,17 @@ var CellView = Backbone.View.extend({
 			this.addEclair();	
 		} else {
 			console.log('CPU turn');
-			this.donutCPU();
+			this.cpuTurn();
 			// this.addDonut();
 		}
 	},
-	donutCPU: function() {
+	cpuTurn: function() {
 		console.log('openCells: ', openCells);
 		openCellIdx = (occupiedCells.length - 1);
 		openCellVal = occupiedCells[openCellIdx];
 		removeValue(openCells, openCellVal);
 		console.log('openCells: ', openCells);
+		findOpenCell();
 	},
 	addDonut: function() {
 		turn = turn + 1		
@@ -53,6 +54,7 @@ var CellView = Backbone.View.extend({
 		eclairModel.set({cell: targetCell});
 		this.occupyCell(eclairModel);
 		this.$el.html(this.template(eclairModel.toJSON()));
+		this.whoseTurn();
 		return this;
 	},
 	occupyCell: function(model) {
