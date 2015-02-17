@@ -74,9 +74,9 @@ var CellView = Backbone.View.extend({
 		console.log('CPU SELECTION', cpuSelection);
 		openCellIdx = (occupiedCells.length - 1);
 		openCellVal = occupiedCells[openCellIdx];
+		this.removeValue(openCells, cpuSelection);
 		this.removeValue(openCells, openCellVal);
 		occupiedCells.push(cpuSelection);
-		this.removeValue(openCells, cpuSelection);
 			setTimeout(function(){ 
 	  		this.addDonut();
 	  	}.bind(this), 1250);
