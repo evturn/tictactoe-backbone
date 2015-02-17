@@ -2,11 +2,11 @@ var AppView = Backbone.View.extend({
 	initialize: function() {
 		cellGrid = [];
 		openCells = [];
-		this.buildGame();
+		this.buildCells();
 		donutsCollection = new DonutsCollection(donutData);
 		eclairsCollection = new EclairsCollection(eclairData);
 	},
-	buildGame: function() {
+	buildCells: function() {
 		this.buildRow('a');
 		this.buildRow('b');
 		this.buildRow('c');

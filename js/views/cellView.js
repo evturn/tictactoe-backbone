@@ -7,51 +7,37 @@ var CellView = Backbone.View.extend({
 		this.render();
 	},
 	events: {
-		'click .cell': 'isUsed'
+		'click .cell': 'userMove'
 	},
 	render: function() {
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	},
-	isUsed: function(e) {
+	userMove: function(e) {
+		e.preventDefault();
 		targetCell = this.model.get('cell');
+		console.log('TARGET', targetCell);
+		console.log('TURN', turn);
+		console.log('OPENCELLS', openCells);
+		this.isUsed();
+	},
+	isUsed: function() {
 		if ($.inArray(targetCell, occupiedCells) === -1) {
 			occupiedCells.push(targetCell);
 			this.whoseTurn();
 		} else {
 			alert('This is taken. Are you blind?');
 		}
+		console.log('OCCUPIED', occupiedCells);
 	},
 	whoseTurn: function() {
 		if (this.isOdd(turn) !== 0) {
-			this.addEclair();	
+			this.addUserSelection();	
 		} else {
-			console.log('CPU turn');
-			this.cpuTurn();
+			this.createCPUSelection();
 		}
 	},
-	cpuTurn: function() {
-		console.log('openCells: ', openCells);
-		openCellIdx = (occupiedCells.length - 1);
-		openCellVal = occupiedCells[openCellIdx];
-		this.removeValue(openCells, openCellVal);
-		cpuSelection = openCells[Math.floor(Math.random()*openCells.length)];
-		occupiedCells.push(cpuSelection);
-		this.removeValue(openCells, cpuSelection);
-		console.log('openCells: ', openCells);
-  	this.addDonut();
-	},
-	addDonut: function() {
-		turn = turn + 1		
-		allDonuts = donutsCollection.models;
-		donutModel = allDonuts[Math.floor(Math.random()*allDonuts.length)];
-		donutModel.set({cell: cpuSelection});
-		this.occupyCell(donutModel);
-		cpuCell = $("#" + cpuSelection);
-		cpuCell.html(this.cpuTemplate(donutModel.toJSON()));
-		return this;
-	},
-	addEclair: function() {
+	addUserSelection: function() {
 		turn = turn + 1
 		allEclairs = eclairsCollection.models;
 		eclairModel = allEclairs[Math.floor(Math.random()*allEclairs.length)];
@@ -82,6 +68,28 @@ var CellView = Backbone.View.extend({
 				alert('A poorly written fake computer wins!');
 			}
 		};
+	},
+	createCPUSelection: function() {
+		cpuSelection = openCells[Math.floor(Math.random()*openCells.length)];
+		console.log('CPU SELECTION', cpuSelection);
+		openCellIdx = (occupiedCells.length - 1);
+		openCellVal = occupiedCells[openCellIdx];
+		this.removeValue(openCells, openCellVal);
+		occupiedCells.push(cpuSelection);
+		this.removeValue(openCells, cpuSelection);
+			setTimeout(function(){ 
+	  		this.addDonut();
+	  	}.bind(this), 1250);
+	},
+	addDonut: function() {
+		turn = turn + 1		
+		allDonuts = donutsCollection.models;
+		donutModel = allDonuts[Math.floor(Math.random()*allDonuts.length)];
+		donutModel.set({cell: cpuSelection});
+		this.occupyCell(donutModel);
+		cpuCell = $("#" + cpuSelection);
+		cpuCell.html(this.cpuTemplate(donutModel.toJSON()));
+		return this;
 	},
 	isOdd: function(number) {
   	return number % 2;
