@@ -23,7 +23,7 @@ var CellView = Backbone.View.extend({
 		}
 	},
 	whoseTurn: function() {
-		if (isOdd(turn) !== 0) {
+		if (this.isOdd(turn) !== 0) {
 			this.addEclair();	
 		} else {
 			console.log('CPU turn');
@@ -82,5 +82,8 @@ var CellView = Backbone.View.extend({
 				alert('A poorly written fake computer wins!');
 			}
 		};
+	},
+	isOdd: function(number) {
+  	return number % 2;
 	},
 });

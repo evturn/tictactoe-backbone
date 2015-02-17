@@ -25,14 +25,6 @@ var winningOutcomes = [
 
 new AppView();
 
-
-
-
-
-function isOdd(number) {
-  return number % 2;
-};
-
 function compareValues(array) {
   for(var i = 1; i < array.length; i++) {
     if (array[i] !== array[0]) {
