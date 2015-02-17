@@ -35,8 +35,10 @@ var CellView = Backbone.View.extend({
 		openCellIdx = (occupiedCells.length - 1);
 		openCellVal = occupiedCells[openCellIdx];
 		removeValue(openCells, openCellVal);
-		console.log('openCells: ', openCells);
 		cpuSelection = openCells[Math.floor(Math.random()*openCells.length)];
+		occupiedCells.push(cpuSelection);
+		removeValue(openCells, cpuSelection);
+		console.log('openCells: ', openCells);
   	this.addDonut();
 	},
 	addDonut: function() {
@@ -75,14 +77,10 @@ var CellView = Backbone.View.extend({
 			currentResults = scores[i]
 			if (compareValues(currentResults) === true && currentResults[0] === 'x') {
 				alert('Eclairs Win! Eclairs forverz!');
-				this.startOver();
 			}
 			else if (compareValues(currentResults) === true && currentResults[0] === 'o') {
-				alert('Donuts, can\'t live with them because they can\'t afford rent');
+				alert('A poorly written fake computer wins!');
 			}
 		};
-	},
-	startOver: function() {
-		console.log('You should do something to restart the game and not be loggin to the console');
 	},
 });
