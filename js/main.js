@@ -25,21 +25,7 @@ var winningOutcomes = [
 
 new AppView();
 
-function compareValues(array) {
-  for(var i = 1; i < array.length; i++) {
-    if (array[i] !== array[0]) {
-        return false;
-    }
-  };
-  return true;
-};
 
-function removeValue(array, value) {
-  var idx = array.indexOf(value);
-  if (idx != -1) {
-    array.splice(idx, 1);
-  }
-};
 
 $(function() {
   cellsCollection = new CellsCollection(cellGrid);

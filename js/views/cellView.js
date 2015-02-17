@@ -34,10 +34,10 @@ var CellView = Backbone.View.extend({
 		console.log('openCells: ', openCells);
 		openCellIdx = (occupiedCells.length - 1);
 		openCellVal = occupiedCells[openCellIdx];
-		removeValue(openCells, openCellVal);
+		this.removeValue(openCells, openCellVal);
 		cpuSelection = openCells[Math.floor(Math.random()*openCells.length)];
 		occupiedCells.push(cpuSelection);
-		removeValue(openCells, cpuSelection);
+		this.removeValue(openCells, cpuSelection);
 		console.log('openCells: ', openCells);
   	this.addDonut();
 	},
@@ -75,15 +75,29 @@ var CellView = Backbone.View.extend({
 	checkScore: function(scores) {
 		for (var i = scores.length - 1; i >= 0; i--) {
 			currentResults = scores[i]
-			if (compareValues(currentResults) === true && currentResults[0] === 'x') {
+			if (this.compareValues(currentResults) === true && currentResults[0] === 'x') {
 				alert('Eclairs Win! Eclairs forverz!');
 			}
-			else if (compareValues(currentResults) === true && currentResults[0] === 'o') {
+			else if (this.compareValues(currentResults) === true && currentResults[0] === 'o') {
 				alert('A poorly written fake computer wins!');
 			}
 		};
 	},
 	isOdd: function(number) {
   	return number % 2;
+	},
+	compareValues: function(array) {
+	  for(var i = 1; i < array.length; i++) {
+	    if (array[i] !== array[0]) {
+	        return false;
+	    }
+	  };
+	  return true;
+	},
+	removeValue: function(array, value) {
+	  var idx = array.indexOf(value);
+	  if (idx != -1) {
+	    array.splice(idx, 1);
+  	}
 	},
 });
