@@ -39,6 +39,7 @@ var CellView = Backbone.View.extend({
 	},
 	addUserSelection: function() {
 		turn = turn + 1
+		this.removeValue(openCells, targetCell);
 		allEclairs = eclairsCollection.models;
 		eclairModel = allEclairs[Math.floor(Math.random()*allEclairs.length)];
 		eclairModel.set({cell: targetCell});
