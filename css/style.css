@@ -6,17 +6,17 @@ body {
 
 .cell {
 	padding-right: 0px;
+	padding-top: 10px;
 }
 
 img {
 	max-width: 100%;
 	height: auto;
-	padding-bottom: 10px;
+	
 }
 
 #grid {
-	margin-top: 20px;
-	max-height: 800px;
+	max-height: 100vh;
 	width: auto;
 }
 
