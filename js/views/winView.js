@@ -12,6 +12,6 @@ var WinView = Backbone.View.extend({
 		return this;
 	},
 	replay: function() {
-		appView = new AppView();
-	},
+		
+	}
 });
