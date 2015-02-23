@@ -46,7 +46,6 @@ var CellView = Backbone.View.extend({
 		this.occupyCell(eclairModel);
 		this.$el.html(this.template(eclairModel.toJSON()));
 		this.whoseTurn();
-		return this;
 	},
 	occupyCell: function(model) {
 		emblem = model.get('emblem');

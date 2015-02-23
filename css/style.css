@@ -1,11 +1,30 @@
 body {
-  background-color: #000;
+  background: url('../img/frosting.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: #fff;
   text-align: center;
 }
 
 .row {
 	text-align: center;
+}
+
+h1 {
+	font-family: Raleway;
+	/*font-family: 'Bangers', cursive;*/
+	color: #fff;
+	text-shadow: 5px 5px #000;
+}
+
+h5 {
+	font-family: Raleway;
+	line-height: 2px;
+	/*font-family: 'Bangers', cursive;*/
+	color: #fff;
+	text-shadow: 5px 5px #000;
 }
 
 .cell {
