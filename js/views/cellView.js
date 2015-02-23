@@ -7,7 +7,7 @@ var CellView = Backbone.View.extend({
 		this.render();
 	},
 	events: {
-		'click .cell': 'userMove'
+		'click .cell': 'userMove',
 	},
 	render: function() {
 		this.$el.html(this.template(this.model.toJSON()));
@@ -46,6 +46,7 @@ var CellView = Backbone.View.extend({
 		this.occupyCell(eclairModel);
 		this.$el.html(this.template(eclairModel.toJSON()));
 		this.whoseTurn();
+		return this;
 	},
 	occupyCell: function(model) {
 		emblem = model.get('emblem');
@@ -62,7 +63,7 @@ var CellView = Backbone.View.extend({
 		for (var i = scores.length - 1; i >= 0; i--) {
 			currentResults = scores[i]
 			if (this.compareValues(currentResults) === true && currentResults[0] === 'x') {
-				alert('Eclairs Win! Eclairs forverz!');
+				winView = new WinView();
 			}
 			else if (this.compareValues(currentResults) === true && currentResults[0] === 'o') {
 				alert('A poorly written fake computer wins!');

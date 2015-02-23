@@ -30,5 +30,4 @@ new AppView();
 $(function() {
   cellsCollection = new CellsCollection(cellGrid);
   new CellsView(cellsCollection);
-
 });
