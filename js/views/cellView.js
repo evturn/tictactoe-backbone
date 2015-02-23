@@ -67,6 +67,7 @@ var CellView = Backbone.View.extend({
 			}
 			else if (this.compareValues(currentResults) === true && currentResults[0] === 'o') {
 				alert('A poorly written fake computer wins!');
+				console.log('A poorly written fake computer wins!');
 			}
 		};
 	},

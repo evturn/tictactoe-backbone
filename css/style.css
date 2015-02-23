@@ -4,6 +4,10 @@ body {
   text-align: center;
 }
 
+.row {
+	text-align: center;
+}
+
 .cell {
 	padding-right: 0px;
 	padding-top: 10px;
@@ -16,8 +20,8 @@ img {
 }
 
 #grid {
-	max-height: 100vh;
-	width: auto;
+	height: auto;
+	max-width: 600px;
 }
 
 .eclair {
@@ -27,3 +31,15 @@ img {
 .donut {
 	font-family: 'Damion', cursive;
 }
+
+/*@media (min-width: 600px) {
+	#grid {
+		padding-left: 25%;
+		height: 600px;
+		width: 600px;
+	}
+
+	img {
+		max-height: 200px;
+	}
+}*/
