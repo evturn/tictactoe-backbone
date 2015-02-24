@@ -11,7 +11,4 @@ var WinView = Backbone.View.extend({
 		this.$el.html(this.elcairTemplate());
 		return this;
 	},
-	replay: function() {
-		
-	}
 });

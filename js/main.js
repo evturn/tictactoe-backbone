@@ -23,7 +23,7 @@ var winningOutcomes = [
     [ 'c1', 'b2', 'a3' ]
 ];
 
-var firstAppView= new AppView();
+new AppView();
 
 $(function() {
   cellsCollection = new CellsCollection(cellGrid);
