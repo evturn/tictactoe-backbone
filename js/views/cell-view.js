@@ -7,19 +7,27 @@ var CellView = Backbone.View.extend({
 		this.render();
 	},
 	events: {
-		'click .vacant' : 'occupy'
+		'click .vacant' : 'move'
 	},
 	render: function() {
 		this.$el.append(this.cellTemplate(this.model.toJSON()));
 		return this;
 	},
-	occupy: function(e) {
+	move: function(e) {
 		var target = e.currentTarget;
 		var id = target.id;
+		var counter = (turns - occupied.length);
+		if (counter % 2 == 0) {
+			this.occupy(id, user);
+		} else {
+			this.occupy(id, cpu);
+		}
+	},
+	occupy: function(id, collection) {
+		var idx = Math.floor(Math.random() * collection.length);
+		var model = collection.models[idx];
 		var elem = '#' + id;
 		occupied.push(id);
-		var idx = Math.floor(Math.random() * cpu.length);
-		var model = cpu.models[idx];
 		$(elem).html(this.occupyTemplate(model.toJSON()));
 		return this;
 	},
