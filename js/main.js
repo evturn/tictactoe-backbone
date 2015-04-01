@@ -21,18 +21,18 @@ var cells = [
 ];
 
 var donuts = [
-  {img: 'img/o-1.jpg', emblem: 'o'},
-  {img: 'img/o-2.jpg', emblem: 'o'},
-  {img: 'img/o-3.jpg', emblem: 'o'},
-  {img: 'img/o-4.jpg', emblem: 'o'},
-  {img: 'img/o-5.jpg', emblem: 'o'}
+  {img: 'img/o-1.jpg'},
+  {img: 'img/o-2.jpg'},
+  {img: 'img/o-3.jpg'},
+  {img: 'img/o-4.jpg'},
+  {img: 'img/o-5.jpg'}
 ];
 
 var eclairs = [
-  {img: 'img/x-1.jpg', emblem: 'x'},
-  {img: 'img/x-2.jpg', emblem: 'x'},
-  {img: 'img/x-3.jpg', emblem: 'x'},
-  {img: 'img/x-4.jpg', emblem: 'x'}
+  {img: 'img/x-1.jpg'},
+  {img: 'img/x-2.jpg'},
+  {img: 'img/x-3.jpg'},
+  {img: 'img/x-4.jpg'}
 ];
 
 
