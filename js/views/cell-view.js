@@ -22,7 +22,7 @@ var CellView = Backbone.View.extend({
 		} else {
 			console.log('Chill, the cpu is thinking');
 		}
-		this.cpu();
+		return this.cpu();
 	},
 	occupy: function(id, collection, bank) {
 		var idx = Math.floor(Math.random() * collection.length);
@@ -35,7 +35,7 @@ var CellView = Backbone.View.extend({
 		$(elem).removeClass('vacant');
 		$(elem).addClass('occupied');
 		$(elem).addClass(player);
-		this.win(player, bank)
+		this.contrast(player, bank)
 		$(elem).html(this.occupyTemplate(model.toJSON()));
 		return this;
 	},
@@ -45,13 +45,13 @@ var CellView = Backbone.View.extend({
 		for (var i = 0; i < vacant.length; ++i) {
 				available.push(vacant[i].id);
 		}
-		setTimeout(function(){ 
+		setTimeout(function(){
 			var id = available[Math.floor(Math.random() * vacant.length)];
 			counter = (turns - occupied.length);
 			this.occupy(id, cpu, cpuBank);
   	}.bind(this), 1250);
 	},
-	win: function(player, bank) {
+	contrast: function(player, bank) {
 		var bank = bank.sort();
 		console.log(player, bank);
 		for (var i = 0; i < bank.length; i++) {
@@ -70,12 +70,14 @@ var CellView = Backbone.View.extend({
 			if (win[0] === win[1]) {
 				console.log(player, 'checking last', win);
 				if (win[1] === win[2]) {
-					alert(player, 'just won with', win);
-					return false;
-				} else {
-					return false;
+					 return this.win(player);
 				}
-			}
+			} 
 		};
+	},
+	win: function(player) {
+		setTimeout(function(){
+			alert(player + ' just won!');
+		}, 500);
 	},
 });
