@@ -35,8 +35,7 @@ var user = [
   {img: 'img/x-4.jpg'}
 ];
 
-var cpu = new Cells(cpu);
-var user = new Cells(user);
+
 var cells = new Cells(cells);
 var cellsView = new CellsView({collection: cells});
 
