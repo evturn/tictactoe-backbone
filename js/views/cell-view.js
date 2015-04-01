@@ -65,6 +65,17 @@ var CellView = Backbone.View.extend({
 				}
 			};
 		};
-		console.log(wins);
+		for (var i = 0; i < wins.length; i++) {
+			var win = wins[i];
+			if (win[0] === win[1]) {
+				console.log(player, 'checking last', win);
+				if (win[1] === win[2]) {
+					alert(player, 'just won with', win);
+					return false;
+				} else {
+					return false;
+				}
+			}
+		};
 	},
 });
