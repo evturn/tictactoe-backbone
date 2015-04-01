@@ -30,7 +30,6 @@ var CellView = Backbone.View.extend({
 		var player = model.get('player');
 		var elem = '#' + id;
 		var cell = parseInt(id);
-		console.log(player);
 		occupied.push(cell);
 		bank.push(cell);
 		$(elem).removeClass('vacant');
@@ -53,16 +52,22 @@ var CellView = Backbone.View.extend({
   	}.bind(this), 1250);
 	},
 	win: function(player) {
-		var player = document.getElementsByClassName(player);
+		var cells = document.getElementsByClassName(player);
 		var bank = [];
 		// all ids from that player
-		for (var i = 0; i < player.length; ++i) {
-			bank.push(player[i].id);
-		}
+		for (var i = 0; i < cells.length; ++i) {
+			var cell = parseInt(cells[i].id);
+			bank.push(cell);
+			console.log(bank);
+		};
 
 		for (var i = 0; i < wins.length; i++) {
-			console.log(wins[i])
+			 var win = wins[i];
+			 var idx = win.indexOf(cell);
+			 if ( idx !== -1) {
+			 	win[idx] = player;
+			 }
+			console.log(win);
 		};
-		console.log(bank);
 	},
 });
