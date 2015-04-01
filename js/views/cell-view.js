@@ -52,18 +52,11 @@ var CellView = Backbone.View.extend({
   	}.bind(this), 1250);
 	},
 	win: function(player, bank) {
-		var cells = document.getElementsByClassName(player);
-		for (var i = 0; i < cells.length; ++i) {
-			var cell = parseInt(cells[i].id);
-		};
 		for (var i = 0; i < wins.length; i++) {
 			var win = wins[i];
-			var idx = win.indexOf(cell);
-			if (idx !== -1) {
-				console.log(idx);
-				win[idx] = player; 	
-			}
-			console.log(bank.sort());
+			// compare these two for matches
+			console.log(win);
+			console.log(player, bank.sort());
 		};
 	},
 });
