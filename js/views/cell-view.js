@@ -53,21 +53,24 @@ var CellView = Backbone.View.extend({
 	},
 	win: function(player) {
 		var cells = document.getElementsByClassName(player);
-		var bank = [];
-		// all ids from that player
 		for (var i = 0; i < cells.length; ++i) {
 			var cell = parseInt(cells[i].id);
-			bank.push(cell);
-			console.log(bank);
 		};
-
 		for (var i = 0; i < wins.length; i++) {
-			 var win = wins[i];
-			 var idx = win.indexOf(cell);
-			 if ( idx !== -1) {
+			var win = wins[i];
+			var idx = win.indexOf(cell);
+			if ( idx !== -1) {
 			 	win[idx] = player;
-			 }
-			console.log(win);
+			 	var loops = 0;
+				 	for (var i = 0; i < win.length; i++) {
+				 		var winCell = win[i];
+				 		if (winCell === player)	{
+				 			console.log(player, win);	
+				 		} else {
+				 			console.log(win);
+				 		}
+				 };
+			};
 		};
 	},
 });
