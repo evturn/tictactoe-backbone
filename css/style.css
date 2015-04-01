@@ -9,6 +9,10 @@ body {
 	border-radius: 6px;
 }
 
+#view {
+	display: inline-block;
+}
+
 h1, h5 {
 	font-family: Raleway;
 	color: #fff;

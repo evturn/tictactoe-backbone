@@ -1,15 +1,16 @@
 var CellsView = Backbone.View.extend({
 	el: '#grid',
 	initialize: function() {
-		this.cell();
+		this.grid();
 	},
 	cell: function() {
 		var view = new CellView();
-		$('#row-a').append(view.render().el);
+		$('#view').append(view.render().el);
 	},
 	grid: function() {
-		var row = 3;
-
-	}
+		for (var i = 0; i < 9; i++) {
+			this.cell();
+		}
+	},
 });
 
