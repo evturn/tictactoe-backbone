@@ -20,7 +20,7 @@ var cells = [
   {id: 9}
 ];
 
-var donuts = [
+var cpu = [
   {img: 'img/o-1.jpg'},
   {img: 'img/o-2.jpg'},
   {img: 'img/o-3.jpg'},
@@ -28,14 +28,15 @@ var donuts = [
   {img: 'img/o-5.jpg'}
 ];
 
-var eclairs = [
+var user = [
   {img: 'img/x-1.jpg'},
   {img: 'img/x-2.jpg'},
   {img: 'img/x-3.jpg'},
   {img: 'img/x-4.jpg'}
 ];
 
-
+var cpu = new Cells(cpu);
+var user = new Cells(user);
 var cells = new Cells(cells);
 var cellsView = new CellsView({collection: cells});
 
