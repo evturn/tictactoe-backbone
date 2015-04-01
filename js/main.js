@@ -1,4 +1,4 @@
-var wins = [
+var combinations = [
   [ 1, 2, 3 ],
   [ 3, 6, 9 ],
   [ 4, 5, 6 ],
@@ -36,9 +36,12 @@ var userImg = [
   {img: 'img/x-4.jpg', player: 'user'}
 ];
 
-
 var cpu = new Cells(cpuImg);
 var user = new Cells(userImg);
 var cells = new Cells(cells);
-var cellsView = new CellsView({collection: cells});
 var turns = cells.length;
+init();
+
+function init() {
+  var cellsView = new CellsView({collection: cells});
+}

@@ -4,6 +4,7 @@ var CellView = Backbone.View.extend({
 	occupyTemplate: _.template($('#occupy-template').html()),
 	cellTemplate: _.template($('#cell-template').html()),
 	initialize: function() {
+		wins = combinations;
 		this.render();
 	},
 	events: {
@@ -70,14 +71,15 @@ var CellView = Backbone.View.extend({
 			if (win[0] === win[1]) {
 				console.log(player, 'checking last', win);
 				if (win[1] === win[2]) {
-					 return this.win(player);
+					return this.win(player);
 				}
 			} 
 		};
 	},
 	win: function(player) {
 		setTimeout(function(){
-			alert(player + ' just won!');
+			confirm(player + ' just won!');
+			init();
 		}, 500);
 	},
 });

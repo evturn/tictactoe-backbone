@@ -1,6 +1,7 @@
 var CellsView = Backbone.View.extend({
 	el: '#grid',
 	initialize: function() {
+		this.$el.empty();
 		occupied = [];
 		userBank = [];
 		cpuBank = [];
