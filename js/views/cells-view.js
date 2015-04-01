@@ -3,14 +3,14 @@ var CellsView = Backbone.View.extend({
 	initialize: function() {
 		this.grid();
 	},
-	cell: function() {
-		var view = new CellView();
+	cell: function(model) {
+		var view = new CellView({model: model});
 		$('#view').append(view.render().el);
 	},
 	grid: function() {
-		for (var i = 0; i < 9; i++) {
-			this.cell();
-		}
+		this.collection.each(function(model) {
+			this.cell(model);
+		}.bind(this))
 	},
 });
 

@@ -1,18 +1,3 @@
-var donuts = [
-  {img: 'img/o-1.jpg', emblem: 'o'},
-  {img: 'img/o-2.jpg', emblem: 'o'},
-  {img: 'img/o-3.jpg', emblem: 'o'},
-  {img: 'img/o-4.jpg', emblem: 'o'},
-  {img: 'img/o-5.jpg', emblem: 'o'}
-];
-
-var eclairs = [
-  {img: 'img/x-1.jpg', emblem: 'x'},
-  {img: 'img/x-2.jpg', emblem: 'x'},
-  {img: 'img/x-3.jpg', emblem: 'x'},
-  {img: 'img/x-4.jpg', emblem: 'x'}
-];
-
 var wins = [
     [ 1, 2, 3 ],
     [ 4, 5, 6 ],
@@ -35,5 +20,22 @@ var cells = [
   {id: 9}
 ];
 
-new CellsView();
+var donuts = [
+  {img: 'img/o-1.jpg', emblem: 'o'},
+  {img: 'img/o-2.jpg', emblem: 'o'},
+  {img: 'img/o-3.jpg', emblem: 'o'},
+  {img: 'img/o-4.jpg', emblem: 'o'},
+  {img: 'img/o-5.jpg', emblem: 'o'}
+];
+
+var eclairs = [
+  {img: 'img/x-1.jpg', emblem: 'x'},
+  {img: 'img/x-2.jpg', emblem: 'x'},
+  {img: 'img/x-3.jpg', emblem: 'x'},
+  {img: 'img/x-4.jpg', emblem: 'x'}
+];
+
+
+var cells = new Cells(cells);
+var cellsView = new CellsView({collection: cells});
 

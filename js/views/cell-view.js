@@ -5,7 +5,7 @@ var CellView = Backbone.View.extend({
 		this.render();
 	},
 	render: function() {
-		this.$el.html(this.cellTemplate());
+		this.$el.html(this.cellTemplate(this.model.toJSON()));
 		return this;
 	},
 });
