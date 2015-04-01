@@ -28,6 +28,8 @@ var CellView = Backbone.View.extend({
 		var model = collection.models[idx];
 		var elem = '#' + id;
 		occupied.push(id);
+		$(elem).removeClass('vacant');
+		$(elem).addClass('occupied');
 		$(elem).html(this.occupyTemplate(model.toJSON()));
 		return this;
 	},
