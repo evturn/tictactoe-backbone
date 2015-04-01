@@ -19,8 +19,8 @@ ul#grid li {
 	background-color: #fff;
 	height: 150px;
 	width: 150px;
+	border-radius: 6px;
 }
-
 
 @media (max-width: 640px) {
 	#grid {
