@@ -35,7 +35,7 @@ var CellView = Backbone.View.extend({
 		$(elem).removeClass('vacant');
 		$(elem).addClass('occupied');
 		$(elem).addClass(player);
-		this.win(player)
+		this.win(player, bank)
 		$(elem).html(this.occupyTemplate(model.toJSON()));
 		return this;
 	},
@@ -51,7 +51,7 @@ var CellView = Backbone.View.extend({
 			this.occupy(id, cpu, cpuBank);
   	}.bind(this), 1250);
 	},
-	win: function(player) {
+	win: function(player, bank) {
 		var cells = document.getElementsByClassName(player);
 		for (var i = 0; i < cells.length; ++i) {
 			var cell = parseInt(cells[i].id);
@@ -59,18 +59,11 @@ var CellView = Backbone.View.extend({
 		for (var i = 0; i < wins.length; i++) {
 			var win = wins[i];
 			var idx = win.indexOf(cell);
-			if ( idx !== -1) {
-			 	win[idx] = player;
-			 	var loops = 0;
-				 	for (var i = 0; i < win.length; i++) {
-				 		var winCell = win[i];
-				 		if (winCell === player)	{
-				 			console.log(player, win);	
-				 		} else {
-				 			console.log(win);
-				 		}
-				 };
-			};
+			if (idx !== -1) {
+				console.log(idx);
+				win[idx] = player; 	
+			}
+			console.log(bank.sort());
 		};
 	},
 });
