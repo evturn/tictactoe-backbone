@@ -17,8 +17,9 @@ var CellView = Backbone.View.extend({
 		var target = e.currentTarget;
 		var id = target.id;
 		var element = '#' + id;
-		console.log(cpu.length);
-		$(element).html(this.occupyTemplate(this.model.toJSON()));
+		var number = Math.floor(Math.random() * cpu.length);
+		var model = cpu.models[number];
+		$(element).html(this.occupyTemplate(model.toJSON()));
 		return this;
 	},
 });
