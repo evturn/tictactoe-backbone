@@ -37,6 +37,7 @@ var userImg = [
 
 
 var cpu = new Cells(cpuImg);
+var user = new Cells(userImg);
 var cells = new Cells(cells);
 var cellsView = new CellsView({collection: cells});
 
