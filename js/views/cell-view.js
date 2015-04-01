@@ -12,6 +12,10 @@ var CellView = Backbone.View.extend({
 		return this;
 	},
 	occupy: function(e) {
-		var id = e.currentTarget.id;
+		e.preventDefault();
+		var target = e.currentTarget;
+		var id = target.id;
+		var element = '#' + id;
+		$(element).html('<img src="img/o-1.jpg">');
 	},
 });
