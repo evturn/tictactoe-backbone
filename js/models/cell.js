@@ -1,5 +1,1 @@
-var Cell = Backbone.Model.extend({
-	defaults: {
-		img: 'img/cell.jpg'
-	}
-});
+var Cell = Backbone.Model.extend({});
