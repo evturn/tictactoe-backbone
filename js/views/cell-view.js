@@ -63,8 +63,8 @@ var CellView = Backbone.View.extend({
 				if ( jdx !== -1) {
 					win[jdx] = player;
 				}
-				console.log(win);
 			};
 		};
+		console.log(wins);
 	},
 });
