@@ -28,12 +28,15 @@ var CellView = Backbone.View.extend({
 	occupy: function(id, collection, bank) {
 		var idx = Math.floor(Math.random() * collection.length);
 		var model = collection.models[idx];
+		var player = model.get('player');
 		var elem = '#' + id;
 		var cell = parseInt(id);
+		console.log(player);
 		occupied.push(cell);
 		bank.push(cell);
 		$(elem).removeClass('vacant');
 		$(elem).addClass('occupied');
+		$(elem).addClass(player);
 		$(elem).html(this.occupyTemplate(model.toJSON()));
 		return this;
 	},

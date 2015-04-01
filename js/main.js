@@ -21,18 +21,18 @@ var cells = [
 ];
 
 var cpuImg = [
-  {img: 'img/o-1.jpg'},
-  {img: 'img/o-2.jpg'},
-  {img: 'img/o-3.jpg'},
-  {img: 'img/o-4.jpg'},
-  {img: 'img/o-5.jpg'}
+  {img: 'img/o-1.jpg', player: 'cpu'},
+  {img: 'img/o-2.jpg', player: 'cpu'},
+  {img: 'img/o-3.jpg', player: 'cpu'},
+  {img: 'img/o-4.jpg', player: 'cpu'},
+  {img: 'img/o-5.jpg', player: 'cpu'}
 ];
 
 var userImg = [
-  {img: 'img/x-1.jpg'},
-  {img: 'img/x-2.jpg'},
-  {img: 'img/x-3.jpg'},
-  {img: 'img/x-4.jpg'}
+  {img: 'img/x-1.jpg', player: 'user'},
+  {img: 'img/x-2.jpg', player: 'user'},
+  {img: 'img/x-3.jpg', player: 'user'},
+  {img: 'img/x-4.jpg', player: 'user'}
 ];
 
 
