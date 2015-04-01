@@ -17,20 +17,37 @@ var CellView = Backbone.View.extend({
 		var target = e.currentTarget;
 		var id = target.id;
 		var counter = (turns - occupied.length);
-		if (counter % 2 == 0) {
-			this.occupy(id, user);
+		if (counter % 2 == 1) {
+			this.occupy(id, user, userBank);
+			console.log(counter);
 		} else {
-			this.occupy(id, cpu);
+			console.log('Chill, the cpu is thinking');
 		}
+		this.cpu();
 	},
-	occupy: function(id, collection) {
+	occupy: function(id, collection, bank) {
 		var idx = Math.floor(Math.random() * collection.length);
 		var model = collection.models[idx];
 		var elem = '#' + id;
-		occupied.push(id);
+		var cell = parseInt(id);
+		occupied.push(cell);
+		bank.push(cell);
 		$(elem).removeClass('vacant');
 		$(elem).addClass('occupied');
 		$(elem).html(this.occupyTemplate(model.toJSON()));
 		return this;
+	},
+	cpu: function() {
+		var vacant = document.getElementsByClassName('vacant');
+		var available = [];
+		for (var i = 0; i < vacant.length; ++i) {
+				available.push(vacant[i].id);
+		}
+		setTimeout(function(){ 
+			var id = available[Math.floor(Math.random() * vacant.length)];
+			counter = (turns - occupied.length);
+			console.log(counter);
+			this.occupy(id, cpu, cpuBank);
+  	}.bind(this), 1250);
 	},
 });
