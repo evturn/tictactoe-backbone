@@ -34,5 +34,13 @@ h1, h5 {
 }
 
 @media (max-width: 600px) {
-	
+	#grid {
+		height: 300px;
+		width: 300px;
+	}
+	.vacant, .occupied {
+		background-color: #fff;
+		height: 70px;
+		width: 70px;
+	}
 }
