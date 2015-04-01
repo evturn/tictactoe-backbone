@@ -1,4 +1,4 @@
-var donutData = [
+var donuts = [
   {img: 'img/o-1.jpg', emblem: 'o'},
   {img: 'img/o-2.jpg', emblem: 'o'},
   {img: 'img/o-3.jpg', emblem: 'o'},
@@ -6,14 +6,14 @@ var donutData = [
   {img: 'img/o-5.jpg', emblem: 'o'}
 ];
 
-var eclairData = [
+var eclairs = [
   {img: 'img/x-1.jpg', emblem: 'x'},
   {img: 'img/x-2.jpg', emblem: 'x'},
   {img: 'img/x-3.jpg', emblem: 'x'},
   {img: 'img/x-4.jpg', emblem: 'x'}
 ];
 
-var winningOutcomes = [
+var wins = [
     [ 'a1', 'a2', 'a3' ],
     [ 'b1', 'b2', 'b3' ],
     [ 'c1', 'c2', 'c3' ],
@@ -25,7 +25,3 @@ var winningOutcomes = [
 
 new AppView();
 
-$(function() {
-  cellsCollection = new CellsCollection(cellGrid);
-  new CellsView(cellsCollection);
-});
