@@ -37,6 +37,7 @@ var CellView = Backbone.View.extend({
 		$(elem).removeClass('vacant');
 		$(elem).addClass('occupied');
 		$(elem).addClass(player);
+		this.win(player)
 		$(elem).html(this.occupyTemplate(model.toJSON()));
 		return this;
 	},
@@ -52,5 +53,13 @@ var CellView = Backbone.View.extend({
 			console.log(counter);
 			this.occupy(id, cpu, cpuBank);
   	}.bind(this), 1250);
+	},
+	win: function(player) {
+		var player = document.getElementsByClassName(player);
+		var bank = [];
+		for (var i = 0; i < player.length; ++i) {
+			bank.push(player[i].id);
+		}
+		console.log(bank);
 	},
 });
