@@ -19,7 +19,6 @@ var CellView = Backbone.View.extend({
 		var counter = (turns - occupied.length);
 		if (counter % 2 == 1) {
 			this.occupy(id, user, userBank);
-			console.log(counter);
 		} else {
 			console.log('Chill, the cpu is thinking');
 		}
@@ -50,16 +49,20 @@ var CellView = Backbone.View.extend({
 		setTimeout(function(){ 
 			var id = available[Math.floor(Math.random() * vacant.length)];
 			counter = (turns - occupied.length);
-			console.log(counter);
 			this.occupy(id, cpu, cpuBank);
   	}.bind(this), 1250);
 	},
 	win: function(player) {
 		var player = document.getElementsByClassName(player);
 		var bank = [];
+		// all ids from that player
 		for (var i = 0; i < player.length; ++i) {
 			bank.push(player[i].id);
 		}
+
+		for (var i = 0; i < wins.length; i++) {
+			console.log(wins[i])
+		};
 		console.log(bank);
 	},
 });

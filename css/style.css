@@ -4,21 +4,20 @@ body {
 
 ul#grid li {
 	display: inline-block;
-	max-height: 150px;
-	max-width: 150px;
-	background-color: #fff;
 	border-radius: 6px;
 	padding-right: 10px;
 	border: 1px solid #4a4a4a;
 }
 
+#grid {
+	width: 600px;
+	height: 600px;
+}
+
 .vacant, .occupied {
+	background-color: #fff;
 	height: 150px;
 	width: 150px;
-	background-color: #fff;
-	border-radius: 6px;
-	padding-right: 10px;
-	border: 1px solid #4a4a4a;
 }
 
 h1, h5 {
@@ -26,16 +25,14 @@ h1, h5 {
 	color: #fff;
 	text-shadow: 5px 5px #000;
 }
-
-#grid {
-	height: auto;
-	max-width: 600px;
-}
-
 .eclair {
 	font-family: 'Oleo Script Swash Caps', cursive;
 }
 
 .donut {
 	font-family: 'Damion', cursive;
+}
+
+@media (max-width: 600px) {
+	
 }
