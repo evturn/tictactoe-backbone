@@ -1,11 +1,12 @@
 var CellView = Backbone.View.extend({
 	tagName: 'li',
+	occupyTemplate: _.template($('#occupy-template').html()),
 	cellTemplate: _.template($('#cell-template').html()),
 	initialize: function() {
 		this.render();
 	},
 	events: {
-		'click a' : 'occupy'
+		'click .cell' : 'occupy'
 	},
 	render: function() {
 		this.$el.append(this.cellTemplate(this.model.toJSON()));
@@ -16,6 +17,8 @@ var CellView = Backbone.View.extend({
 		var target = e.currentTarget;
 		var id = target.id;
 		var element = '#' + id;
-		$(element).html('<img src="img/o-1.jpg">');
+		console.log(cpu.length);
+		$(element).html(this.occupyTemplate(this.model.toJSON()));
+		return this;
 	},
 });

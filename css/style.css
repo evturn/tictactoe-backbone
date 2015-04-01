@@ -4,6 +4,12 @@ body {
 
 ul#grid li {
 	display: inline-block;
+	height: 150px;
+	width: 150px;
+	background-color: #fff;
+	border-radius: 6px;
+	padding-right: 10px;
+	border: 1px solid #4a4a4a;
 }
 
 .cell {
