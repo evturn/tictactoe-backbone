@@ -1,10 +1,15 @@
-var AppView = Backbone.View.extend({
+var CellsView = Backbone.View.extend({
 	el: '#grid',
-	cellTemplate: _.template($('#cell-template').html()),
 	initialize: function() {
-		this.render();
+		this.cell();
 	},
-	render: function() {
-		
+	cell: function() {
+		var view = new CellView();
+		$('#row-a').append(view.render().el);
 	},
+	grid: function() {
+		var row = 3;
+
+	}
 });
+

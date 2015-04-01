@@ -23,5 +23,5 @@ var wins = [
     [ 'c1', 'b2', 'a3' ]
 ];
 
-new AppView();
+new CellsView();
 
