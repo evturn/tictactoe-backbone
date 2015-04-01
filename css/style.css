@@ -33,7 +33,31 @@ h1, h5 {
 	font-family: 'Damion', cursive;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+	#grid {
+		height: 500px;
+		width: 500px;
+	}
+	.vacant, .occupied {
+		background-color: #fff;
+		height: 125px;
+		width: 125px;
+	}
+}
+
+@media (max-width: 550px) {
+	#grid {
+		height: 400px;
+		width: 400px;
+	}
+	.vacant, .occupied {
+		background-color: #fff;
+		height: 100px;
+		width: 100px;
+	}
+}
+
+@media (max-width: 420px) {
 	#grid {
 		height: 300px;
 		width: 300px;
