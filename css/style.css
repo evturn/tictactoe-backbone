@@ -1,7 +1,9 @@
 body {
   background-color: #4a4a4a;
+	font-family: Raleway;
+	color: #fff;
+	text-shadow: 5px 5px #000;
 }
-
 ul#grid li {
 	display: inline-block;
 	padding-right: 10px;
@@ -19,18 +21,6 @@ ul#grid li {
 	width: 150px;
 }
 
-h1, h5 {
-	font-family: Raleway;
-	color: #fff;
-	text-shadow: 5px 5px #000;
-}
-.eclair {
-	font-family: 'Oleo Script Swash Caps', cursive;
-}
-
-.donut {
-	font-family: 'Damion', cursive;
-}
 
 @media (max-width: 640px) {
 	#grid {
