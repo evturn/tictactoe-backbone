@@ -4,12 +4,11 @@ body {
 
 ul#grid li {
 	display: inline-block;
-	border-radius: 6px;
 	padding-right: 10px;
 	border: 1px solid #4a4a4a;
 }
 
-#grid {
+#column {
 	width: 600px;
 	height: 600px;
 }

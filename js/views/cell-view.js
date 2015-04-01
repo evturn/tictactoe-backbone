@@ -4,7 +4,6 @@ var CellView = Backbone.View.extend({
 	occupyTemplate: _.template($('#occupy-template').html()),
 	cellTemplate: _.template($('#cell-template').html()),
 	initialize: function() {
-		wins = combinations;
 		this.render();
 	},
 	events: {
@@ -23,7 +22,13 @@ var CellView = Backbone.View.extend({
 		} else {
 			console.log('Chill, the cpu is thinking');
 		}
-		return this.cpu();
+		setTimeout(function(){
+  		if (winner !== true) {
+  			return this.cpu()
+  		} else {
+  			return false;
+  		}
+  	}.bind(this), 1250);
 	},
 	occupy: function(id, collection, bank) {
 		var idx = Math.floor(Math.random() * collection.length);
@@ -45,16 +50,14 @@ var CellView = Backbone.View.extend({
 		var available = [];
 		for (var i = 0; i < vacant.length; ++i) {
 				available.push(vacant[i].id);
-		}
-		setTimeout(function(){
+		};
 			var id = available[Math.floor(Math.random() * vacant.length)];
 			counter = (turns - occupied.length);
 			this.occupy(id, cpu, cpuBank);
-  	}.bind(this), 1250);
 	},
 	contrast: function(player, bank) {
 		var bank = bank.sort();
-		console.log(player, bank);
+
 		for (var i = 0; i < bank.length; i++) {
 			var idx = bank[i];
 			console.log(idx);
@@ -66,11 +69,13 @@ var CellView = Backbone.View.extend({
 				}
 			};
 		};
+
 		for (var i = 0; i < wins.length; i++) {
 			var win = wins[i];
 			if (win[0] === win[1]) {
 				console.log(player, 'checking last', win);
 				if (win[1] === win[2]) {
+					winner = true;
 					return this.win(player);
 				}
 			} 
@@ -78,8 +83,7 @@ var CellView = Backbone.View.extend({
 	},
 	win: function(player) {
 		setTimeout(function(){
-			confirm(player + ' just won!');
-			init();
-		}, 500);
+			alert(player + ' just won!');
+		}, 300);
 	},
 });
