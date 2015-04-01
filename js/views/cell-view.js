@@ -17,6 +17,7 @@ var CellView = Backbone.View.extend({
 		var target = e.currentTarget;
 		var id = target.id;
 		var elem = '#' + id;
+		occupied.push(id);
 		var idx = Math.floor(Math.random() * cpu.length);
 		var model = cpu.models[idx];
 		$(elem).html(this.occupyTemplate(model.toJSON()));
