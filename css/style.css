@@ -22,6 +22,10 @@ ul#grid li {
 	border-radius: 6px;
 }
 
+img {
+	padding-top: 10%;
+}
+
 @media (max-width: 640px) {
 	#grid {
 		height: 500px;
@@ -48,12 +52,15 @@ ul#grid li {
 
 @media (max-width: 420px) {
 	#grid {
-		height: 300px;
-		width: 300px;
+		height: 350px;
+		width: 350px;
 	}
 	.vacant, .occupied {
 		background-color: #fff;
-		height: 70px;
-		width: 70px;
+		height: 75px;
+		width: 75px;
+	}
+	img {
+		padding-top: 20%;
 	}
 }
