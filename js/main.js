@@ -41,3 +41,7 @@ var user = new Cells(userImg);
 var cells = new Cells(cells);
 var cellsView = new CellsView({collection: cells});
 var turns = cells.length;
+
+new WOW(
+  { offset: 120 }
+).init();
