@@ -22,6 +22,9 @@ ul#grid li {
 	border-radius: 6px;
 }
 
+.vacant:hover, .occupied:hover {
+	background-color: #a3a3a3;
+}
 img {
 	padding-top: 10%;
 }
